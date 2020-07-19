@@ -18,7 +18,7 @@ Alternatively, you can also check out the sample Unity code to learn how to use 
     <li>You can optionally categorize/group responses with the SendNode($name [,$combinedFields]) function</li></ul>
     
     EXAMPLE:
-    [code]function customFetchAllUsers()
+    [pre]function customFetchAllUsers()
       {
         $response = '';
         $users = $wpdb->get_results("SELECT * FROM $wpdb->users");
@@ -29,7 +29,8 @@ Alternatively, you can also check out the sample Unity code to learn how to use 
           $response .= SendField("email", $user->user_email);
         }
         return SendToUnity($response);
-      }[/code]
+      }
+      [/pre]
       
 2. Inside Unity, find the Assets/myBad Studios/WUSS/Scripts.Custom/WUExpansion.cs and modify the WUExpActions enum. 
 Your enum value must perfectly match the name of your function from step 1 except it must not have the "custom" prefix. 
