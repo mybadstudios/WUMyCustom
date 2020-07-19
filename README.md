@@ -38,9 +38,30 @@ Your enum value must perfectly match the name of your function from step 1 excep
 Example: Change WUExpActions from `{isSubscribed}` to `{isSubscribed, FetchAllUsers}`
 _NOTE: This step is entirely optional but I like to list my online actions in an enum to avoid typos later in the project. the enum is converted to a string in step 3 so you can skip this step if you like and just use a string directly 
 
-3. Duplicate one of the existing functions in WUExpansion.cs and just replace the enum value it passes with the one you created
+3. Duplicate one of the existing functions in WUExpansion.cs and just replace the enum value it passes with the one you created.
 
-Done. You can now use your custom functionality inside your Unity project. 
+Done!
+
+### Complete Unity Example
+This snippet demonstrates how to modify WUExpansions.cp to add a custom function tpo your project, trigger that function after the user has successfulyl logged in and then printing out either the successful results or the error message that was returned from the website:
+```
+  enum WUExpActions { IsSubscribed, FetchAllUsers }
+
+  void Start() => WULogin.onLoggedIn += FetchSubscription;
+  void FetchAllUsers() => WPServer.ContactServer(WUExpActions.FetchAllUsers, filepath, ASSET, null, PrintUsers, HandleError); 
+  void HandleError(CMLData error) => Debug.LogWarning( error.String("message") );
+  void PrintUsers(CML response)
+  {
+      var users = respose.Children(0);
+      foreach (var user in users)
+        Debug.Log($"ID: {user.Int("uid")}, Login: {user.String("user_login")}, Email: {user.String("email")}");
+  }
+```
+
+Done!
+
+As you can see, the bulk of the work is done in PHP. Just create a function that does absolutely anything you want, prefix the function with the word `custom` and you are done. In Unity all you have to do is tell WPServer "Call my php function" and then what to do with the response once it arrives. That easy... 😎
+
 Enjoy!
 
 # Compatibility
