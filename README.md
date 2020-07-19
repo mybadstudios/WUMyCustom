@@ -11,11 +11,11 @@ Alternatively, you can also check out the sample Unity code to learn how to use 
 
 # Steps for customizing WordPress for Unity with your own functionality
 1. Edit the unity_functions.php script to contain your custom functionality. Just remember the following few rules:
-    [list][li]The function you call from Unity must start with the word "custom". For example: customFetchAllUsers()[/li]
-    [li] Your function must return with SendToUnity($response) in order to send back the response of your function to Unity[/li]
-    [li] If your function returns an error use PrintError($message).For example: SendToUnity( PrintError("User not logged in") );[/li]
-    [li] To send back multiple responses (if NOT returning an error), concatenate your responses using SendField($name, $value)[/li]
-    [li] You can optionally categorize/group responses with the SendNode($name [,$combinedFields]) function[/li][/list]
+    <ul><li>The function you call from Unity must start with the word "custom". For example: customFetchAllUsers()</li>
+    <li>Your function must return with SendToUnity($response) in order to send back the response of your function to Unity</li>
+    <li>If your function returns an error use PrintError($message).For example: SendToUnity( PrintError("User not logged in") );</li>
+    <li>To send back multiple responses (if NOT returning an error), concatenate your responses using SendField($name, $value)</li>
+    <li>You can optionally categorize/group responses with the SendNode($name [,$combinedFields]) function</li></ul>
     
     EXAMPLE:
     
