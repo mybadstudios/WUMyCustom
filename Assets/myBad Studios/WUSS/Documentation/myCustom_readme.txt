@@ -9,7 +9,7 @@ WordPress side code to add your own custom extensions to the kit.
 HOW TO USE
 ==========
 To see this kit in action:
-1. Make sure to install WordPress login into the project and follow it's setup instructions
+1. Make sure to install WordPress for Unity Bridge into the project and follow it's setup instructions
 2. Install the included package on your website if you haven't done so yet
 3. Open up the demo scene in Unity and drag the login prefab into the scene
 4. Hit the play button.
